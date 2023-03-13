@@ -17,6 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragmentbanner"
-            android:name="com.dinklokcode.musicapp.Fragment.Fragment_Banner"/>
+            android:name="com.dinklokcode.musicapp.Fragment.Fragment_Banner">
+        </fragment>
+
+        <fragment
+            android:name="com.dinklokcode.musicapp.Fragment.Fragment_ChuDe"
+            android:id="@+id/fragmentchude1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </fragment>
     </LinearLayout>
 </ScrollView>
