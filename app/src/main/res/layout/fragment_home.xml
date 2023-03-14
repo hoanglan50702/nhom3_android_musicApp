@@ -13,17 +13,48 @@
         android:layout_height="wrap_content"
         android:id="@+id/linearlayout"
         android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chào buổi tối"
+                android:textColor="@color/white"
+                android:id="@+id/txtHello"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+            <ImageView
+                android:id="@+id/logomain"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/iconlogodialog"
+                android:layout_alignRight="@id/txtHello"
+                android:layout_marginRight="10dp"
+                android:padding="2dp">
+            </ImageView>
+
+        </RelativeLayout>
+
+
+
         <fragment
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragmentbanner"
-            android:name="com.dinklokcode.musicapp.Fragment.Fragment_Banner">
+            android:name="com.dinklokcode.musicapp.Fragment.Fragment_Banner"
+            tools:layout="@layout/fragment_banner">
         </fragment>
         <fragment
             android:name="com.dinklokcode.musicapp.Fragment.Fragment_ChuDe"
             android:id="@+id/fragmentchude1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_chude">
         </fragment>
     </LinearLayout>
 </ScrollView>
