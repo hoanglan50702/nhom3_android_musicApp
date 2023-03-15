@@ -56,5 +56,23 @@
             android:layout_height="wrap_content"
             tools:layout="@layout/fragment_chude">
         </fragment>
+
+        <fragment
+            android:name="com.dinklokcode.musicapp.Fragment.fragment_playlist"
+            android:id="@+id/fragmentplaylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_playlist">
+        </fragment>
+
+        <fragment
+            android:name="com.dinklokcode.musicapp.Fragment.Fragment_ChuDe"
+            android:id="@+id/fragmentchude2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_chude">
+        </fragment>
+
+
     </LinearLayout>
 </ScrollView>

@@ -1,6 +1,7 @@
 package com.dinklokcode.musicapp.Service;
 
 import com.dinklokcode.musicapp.Model.ChuDeModel;
+import com.dinklokcode.musicapp.Model.PlaylistModel;
 import com.dinklokcode.musicapp.Model.Quangcao;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface DataService {
     Call<List<Quangcao>> GetDataBanner();
     @GET("tatcachude.php")
     Call<List<ChuDeModel>> GetChuDeCurrent();
+    @GET("danhsachcacplaylist.php")
+    Call<List<PlaylistModel>> GetPlayList();
 }
