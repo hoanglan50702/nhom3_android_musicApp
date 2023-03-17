@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.dinklokcode.musicapp.Activity.DanhSachBaiHat_Activity;
 import com.dinklokcode.musicapp.Model.Quangcao;
 import com.dinklokcode.musicapp.R;
 import com.squareup.picasso.Picasso;
@@ -54,6 +56,14 @@ public class BannerAdapter extends PagerAdapter {
         txttitlesongbanner.setText(arrayListbanner.get(position).getTenBaiHat());
         txtnoidung.setText(arrayListbanner.get(position).getNoidung());
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DanhSachBaiHat_Activity.class);
+                intent.putExtra("banner", arrayListbanner.get(position));
+                context.startActivity(intent);
+            }
+        });
 
         container.addView(view);
         return view;
