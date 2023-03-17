@@ -105,6 +105,15 @@ public class DanhSachBaiHat_Activity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewDanhSachBaiHat);
         floatingActionButton = findViewById(R.id.floattingActionButton);
         imageDanhSachCaKhuc = findViewById(R.id.imgDanhSachCaKhuc);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void DataIntent() {
