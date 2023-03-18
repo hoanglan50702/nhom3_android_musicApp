@@ -2,6 +2,7 @@ package com.dinklokcode.musicapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -16,8 +17,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dinklokcode.musicapp.Adapter.DanhsachbaihatAdapter;
 import com.dinklokcode.musicapp.Model.BaiHatModel;
 import com.dinklokcode.musicapp.Model.Quangcao;
 import com.dinklokcode.musicapp.R;
@@ -39,15 +42,18 @@ import retrofit2.Response;
 
 public class DanhSachBaiHat_Activity extends AppCompatActivity {
 
-    CoordinatorLayout coordinatorLayout;
-    CollapsingToolbarLayout collapsingToolbarLayout;
-    Toolbar toolbar;
-    RecyclerView recyclerView;
+    androidx.appcompat.widget.Toolbar toolbar;
+    RecyclerView recyclerViewdanhsachbaihat;
     FloatingActionButton floatingActionButton;
-    ImageView imageDanhSachCaKhuc;
+    TextView txtcollapsing;
+    ImageView imgdanhsachcakhuc;
     ArrayList<BaiHatModel> mangBaiHat;
-
+    DanhsachbaihatAdapter danhsachbaihatAdapter;
     Quangcao quangcao;
+    ImageView btnThemnhac;
+    SwipeRefreshLayout swipeRefreshLayout;
+    CollapsingToolbarLayout collapsingToolbarLayout;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +75,9 @@ public class DanhSachBaiHat_Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<BaiHatModel>> call, Response<List<BaiHatModel>> response) {
                 mangBaiHat = (ArrayList<BaiHatModel>) response.body();
-                Log.d("BBB", mangBaiHat.get(0).getTenBaiHat());
-
+                DanhsachbaihatAdapter danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhSachBaiHat_Activity.this, mangBaiHat);
+                recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHat_Activity.this));
+                recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
             }
 
             @Override
@@ -94,17 +101,19 @@ public class DanhSachBaiHat_Activity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Picasso.with(this).load(hinh).into(imageDanhSachCaKhuc);
+        Picasso.with(this).load(hinh).into(imgdanhsachcakhuc);
     }
 
 
     private void AnhXa() {
-        coordinatorLayout = findViewById(R.id.coordinatorlayout);
-        collapsingToolbarLayout = findViewById(R.id.collapsingtoolbar);
         toolbar = findViewById(R.id.toolbardanhsachbaihat);
-        recyclerView = findViewById(R.id.recyclerViewDanhSachBaiHat);
-        floatingActionButton = findViewById(R.id.floattingActionButton);
-        imageDanhSachCaKhuc = findViewById(R.id.imgDanhSachCaKhuc);
+        recyclerViewdanhsachbaihat = findViewById(R.id.recyclerviewdanhsachbaihat);
+        imgdanhsachcakhuc = findViewById(R.id.imageviewdanhsachcakhuc);
+        floatingActionButton = findViewById(R.id.floatingactionbutton);
+        txtcollapsing = findViewById(R.id.textViewcollapsing);
+        btnThemnhac = findViewById(R.id.btnthemnhacthuvien);
+        collapsingToolbarLayout = findViewById(R.id.collapsingtoolbar);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitleTextColor(Color.WHITE);

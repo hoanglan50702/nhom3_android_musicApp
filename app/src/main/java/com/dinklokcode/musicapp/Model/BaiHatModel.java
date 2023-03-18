@@ -7,37 +7,37 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BaiHatModel implements Parcelable {
-    @SerializedName("IdBaiHat")
+    @SerializedName("idBaiHat")
     @Expose
     private int idBaiHat;
     @SerializedName("TenBaiHat")
     @Expose
-    private String tenBaiHat;
+    private String TenBaiHat;
     @SerializedName("HinhBaiHat")
     @Expose
-    private String hinhBaiHat;
-    @SerializedName("TenCaSi")
+    private String HinhBaiHat;
+    @SerializedName("CaSi")
     @Expose
-    private String tenCaSi;
+    private String CaSi;
     @SerializedName("LinkBaiHat")
     @Expose
-    private String linkBaiHat;
+    private String LinkBaiHat;
 
     public BaiHatModel(int idBaiHat, String tenBaiHat, String hinhBaiHat, String tenCaSi, String linkBaiHat) {
         this.idBaiHat = idBaiHat;
-        this.tenBaiHat = tenBaiHat;
-        this.hinhBaiHat = hinhBaiHat;
-        this.tenCaSi = tenCaSi;
-        this.linkBaiHat = linkBaiHat;
+        this.TenBaiHat = tenBaiHat;
+        this.HinhBaiHat = hinhBaiHat;
+        this.CaSi = tenCaSi;
+        this.LinkBaiHat = linkBaiHat;
     }
 
 
     protected BaiHatModel(Parcel in) {
         idBaiHat = in.readInt();
-        tenBaiHat = in.readString();
-        hinhBaiHat = in.readString();
-        tenCaSi = in.readString();
-        linkBaiHat = in.readString();
+        TenBaiHat = in.readString();
+        HinhBaiHat = in.readString();
+        CaSi = in.readString();
+        LinkBaiHat = in.readString();
     }
 
     public static final Creator<BaiHatModel> CREATOR = new Creator<BaiHatModel>() {
@@ -61,35 +61,35 @@ public class BaiHatModel implements Parcelable {
     }
 
     public String getTenBaiHat() {
-        return tenBaiHat;
+        return TenBaiHat;
     }
 
     public void setTenBaiHat(String tenBaiHat) {
-        this.tenBaiHat = tenBaiHat;
+        this.TenBaiHat = tenBaiHat;
     }
 
     public String getHinhBaiHat() {
-        return hinhBaiHat;
+        return HinhBaiHat;
     }
 
     public void setHinhBaiHat(String hinhBaiHat) {
-        this.hinhBaiHat = hinhBaiHat;
+        this.HinhBaiHat = hinhBaiHat;
     }
 
     public String getTenCaSi() {
-        return tenCaSi;
+        return CaSi;
     }
 
     public void setTenCaSi(String tenCaSi) {
-        this.tenCaSi = tenCaSi;
+        this.CaSi = tenCaSi;
     }
 
     public String getLinkBaiHat() {
-        return linkBaiHat;
+        return LinkBaiHat;
     }
 
     public void setLinkBaiHat(String linkBaiHat) {
-        this.linkBaiHat = linkBaiHat;
+        this.LinkBaiHat = linkBaiHat;
     }
 
 
@@ -102,10 +102,10 @@ public class BaiHatModel implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(idBaiHat);
-        parcel.writeString(tenBaiHat);
-        parcel.writeString(hinhBaiHat);
-        parcel.writeString(tenCaSi);
-        parcel.writeString(linkBaiHat);
+        parcel.writeString(TenBaiHat);
+        parcel.writeString(HinhBaiHat);
+        parcel.writeString(CaSi);
+        parcel.writeString(LinkBaiHat);
     }
 
 }

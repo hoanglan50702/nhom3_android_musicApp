@@ -25,5 +25,5 @@ public interface DataService {
 
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
-    Call<List<BaiHatModel>> GetDanhSachBaiHatTheoQuangCao(@Field("idquangcao") String idquangcao);
+    Call<List<BaiHatModel>> GetDanhSachBaiHatTheoQuangCao(@Field("idQuangCao") String idquangcao);
 }
