@@ -9,13 +9,13 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class PlaylistModel implements Serializable {
-    @SerializedName("IdPlaylist")
+    @SerializedName("idPlayList")
     @Expose
     private String idPlaylist;
-    @SerializedName("Ten")
+    @SerializedName("tenPlayList")
     @Expose
     private String ten;
-    @SerializedName("HinhPlaylist")
+    @SerializedName("HinhNen")
     @Expose
     private String hinhPlaylist;
 
