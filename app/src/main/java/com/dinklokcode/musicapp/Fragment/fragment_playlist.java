@@ -2,6 +2,7 @@ package com.dinklokcode.musicapp.Fragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dinklokcode.musicapp.Activity.DanhSachBaiHat_Activity;
 import com.dinklokcode.musicapp.Adapter.ChuDeAdapter;
 import com.dinklokcode.musicapp.Adapter.PlaylistAdapter;
 import com.dinklokcode.musicapp.Model.ChuDeModel;

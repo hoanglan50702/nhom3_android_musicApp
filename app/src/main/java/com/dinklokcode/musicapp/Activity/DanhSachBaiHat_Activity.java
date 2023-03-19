@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.dinklokcode.musicapp.Adapter.DanhsachbaihatAdapter;
 import com.dinklokcode.musicapp.Model.BaiHatModel;
+import com.dinklokcode.musicapp.Model.PlaylistModel;
 import com.dinklokcode.musicapp.Model.Quangcao;
 import com.dinklokcode.musicapp.R;
 import com.dinklokcode.musicapp.Service.APIService;
@@ -52,6 +53,7 @@ public class DanhSachBaiHat_Activity extends AppCompatActivity {
     Quangcao quangcao;
     ImageView btnThemnhac;
     SwipeRefreshLayout swipeRefreshLayout;
+    PlaylistModel playlistModel;
     CollapsingToolbarLayout collapsingToolbarLayout;
     private int id;
 
@@ -66,6 +68,29 @@ public class DanhSachBaiHat_Activity extends AppCompatActivity {
             getDataQuangCao(quangcao.getIdQuangCao());
 
         }
+        if (playlistModel != null && !playlistModel.getTen().equals("")) {
+            setValueInView(playlistModel.getTen(), playlistModel.getHinhPlaylist());
+            getDataPlayList(playlistModel.getIdPlaylist());
+        }
+    }
+
+    private void getDataPlayList(String idPlayList) {
+        DataService dataService = APIService.getService();
+        Call<List<BaiHatModel>> callback = dataService.GetDanhSachBaiHatTheoPlayList(idPlayList);
+        callback.enqueue(new Callback<List<BaiHatModel>>() {
+            @Override
+            public void onResponse(Call<List<BaiHatModel>> call, Response<List<BaiHatModel>> response) {
+                mangBaiHat = (ArrayList<BaiHatModel>) response.body();
+                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhSachBaiHat_Activity.this, mangBaiHat);
+                recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHat_Activity.this));
+                recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<BaiHatModel>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void getDataQuangCao(String idQuangCao) {
@@ -130,7 +155,9 @@ public class DanhSachBaiHat_Activity extends AppCompatActivity {
         if (intent != null) {
             if (intent.hasExtra("banner")) {
                 quangcao = (Quangcao) intent.getSerializableExtra("banner");
-                Toast.makeText(this, quangcao.getTenBaiHat(), Toast.LENGTH_SHORT).show();
+            }
+            if (intent.hasExtra("itemplaylist")) {
+                playlistModel = (PlaylistModel) intent.getSerializableExtra("itemplaylist");
             }
         }
     }
