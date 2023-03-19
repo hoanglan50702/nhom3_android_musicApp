@@ -166,5 +166,23 @@
             android:layout_height="wrap_content"
             tools:layout="@layout/fragment_nghesi">
         </fragment>
+
+        <fragment
+            android:name="com.dinklokcode.musicapp.Fragment.Fragment_ThinhHanh"
+            android:id="@+id/fragmentchude4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_nghesi">
+        </fragment>
+
+        <fragment
+            android:name="com.dinklokcode.musicapp.Fragment.Fragment_Radio"
+            android:id="@+id/fragmentchude5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_nghesi">
+        </fragment>
+
+
     </LinearLayout>
 </ScrollView>

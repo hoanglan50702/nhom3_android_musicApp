@@ -5,6 +5,8 @@ import com.dinklokcode.musicapp.Model.ChuDeModel;
 import com.dinklokcode.musicapp.Model.NgheSiModel;
 import com.dinklokcode.musicapp.Model.PlaylistModel;
 import com.dinklokcode.musicapp.Model.Quangcao;
+import com.dinklokcode.musicapp.Model.RadioModel;
+import com.dinklokcode.musicapp.Model.ThinhHanhModel;
 
 import java.util.List;
 
@@ -26,6 +28,12 @@ public interface DataService {
 
     @GET("nghesicurrent.php")
     Call<List<NgheSiModel>> GetNgheSiCurrent();
+
+    @GET("thinhhanhcurrent.php")
+    Call<List<ThinhHanhModel>> GetThinhHanhCurrent();
+
+    @GET("radiocurrent.php")
+    Call<List<RadioModel>> GetRadioCurrent();
 
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
