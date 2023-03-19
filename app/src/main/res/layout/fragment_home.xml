@@ -28,99 +28,6 @@
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"/>
 
-            <TextView
-                android:id="@+id/newReleasesTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your Playlists"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"
-                />
-            <LinearLayout
-                android:id="@+id/musiclist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="100dp">
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/gray_strong"
-                    android:gravity="left|center"
-                    android:text="Liked Songs  💛"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/gray_strong"
-                    android:text="Podcast  🎤 🤍"
-                    android:gravity="left|center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="15dp"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/gray_strong"
-                    android:text="Dance Music  💃"
-                    android:gravity="left|center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="-315dp"
-                    android:layout_marginTop="70dp"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/gray_strong"
-                    android:text="Radio  📻 "
-                    android:gravity="left|center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="82dp"
-                    />
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/gray_strong"
-                    android:text="❤"
-                    android:gravity="left|center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="-315dp"
-                    android:layout_marginTop="150dp"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/gray_strong"
-                    android:text="💙"
-                    android:gravity="left|center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="150dp"
-                    />
-            </LinearLayout>
-
         </RelativeLayout>
 
         <fragment
@@ -131,6 +38,101 @@
             tools:layout="@layout/fragment_banner"
             android:layout_marginTop="20dp">
         </fragment>
+
+        <TextView
+            android:id="@+id/newReleasesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Playlists"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/musiclist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/gray_strong"
+                android:gravity="left|center"
+                android:text="Liked Songs  💛"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/gray_strong"
+                android:text="Podcast  🎤 🤍"
+                android:gravity="left|center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/gray_strong"
+                android:text="Dance Music  💃"
+                android:gravity="left|center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginLeft="-315dp"
+                android:layout_marginTop="70dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/gray_strong"
+                android:text="Radio  📻 "
+                android:gravity="left|center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="82dp"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/gray_strong"
+                android:text="❤"
+                android:gravity="left|center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginLeft="-315dp"
+                android:layout_marginTop="150dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/gray_strong"
+                android:text="💙"
+                android:gravity="left|center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="150dp"
+                />
+        </LinearLayout>
 
         <fragment
             android:id="@+id/fragmentchude1"
@@ -155,6 +157,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout="@layout/fragment_chude">
+        </fragment>
+
+        <fragment
+            android:name="com.dinklokcode.musicapp.Fragment.Fragment_NgheSi"
+            android:id="@+id/fragmentchude3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_nghesi">
         </fragment>
     </LinearLayout>
 </ScrollView>

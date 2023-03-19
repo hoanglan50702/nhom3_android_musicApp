@@ -2,6 +2,7 @@ package com.dinklokcode.musicapp.Service;
 
 import com.dinklokcode.musicapp.Model.BaiHatModel;
 import com.dinklokcode.musicapp.Model.ChuDeModel;
+import com.dinklokcode.musicapp.Model.NgheSiModel;
 import com.dinklokcode.musicapp.Model.PlaylistModel;
 import com.dinklokcode.musicapp.Model.Quangcao;
 
@@ -22,6 +23,9 @@ public interface DataService {
 
     @GET("danhsachcacplaylist.php")
     Call<List<PlaylistModel>> GetPlayList();
+
+    @GET("nghesicurrent.php")
+    Call<List<NgheSiModel>> GetNgheSiCurrent();
 
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
