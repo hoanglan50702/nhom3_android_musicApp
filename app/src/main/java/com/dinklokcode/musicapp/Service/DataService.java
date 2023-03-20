@@ -46,4 +46,8 @@ public interface DataService {
     @FormUrlEncoded
     @POST("canhan_playlist.php")
     Call<List<PlaylistModel>> GetDSPlayListCaNhan(@Field("username") String username);
+
+    @FormUrlEncoded
+    @POST("canhan_dsbaihatyt.php")
+    Call<List<BaiHatModel>> GetDSBaiHatYTCaNhan(@Field("username") String username);
 }
