@@ -1,5 +1,6 @@
 package com.dinklokcode.musicapp.Service;
 
+import com.dinklokcode.musicapp.Model.BaiHat;
 import com.dinklokcode.musicapp.Model.BaiHatModel;
 import com.dinklokcode.musicapp.Model.ChuDeModel;
 import com.dinklokcode.musicapp.Model.NgheSiModel;
@@ -36,7 +37,7 @@ public interface DataService {
     Call<List<RadioModel>> GetRadioCurrent();
 
     @GET("test.php")
-    Call<List<BaiHatModel>> GetAllBaihat();
+    Call<List<BaiHat>> GetAllBaihat();
 
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
@@ -52,5 +53,9 @@ public interface DataService {
 
     @FormUrlEncoded
     @POST("canhan_dsbaihatyt.php")
-    Call<List<BaiHatModel>> GetDSBaiHatYTCaNhan(@Field("username") String username);
+    Call<List<BaiHat>> GetDSBaiHatYTCaNhan(@Field("username") String username);
+
+    @FormUrlEncoded
+    @POST("updatebhyt.php")
+    Call<List<BaiHat>> UpdateBaiHatYT(@Field("username") String username,@Field("idbaihat") String idBaiHat,@Field("update") String update);
 }

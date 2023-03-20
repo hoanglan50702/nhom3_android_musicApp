@@ -8,19 +8,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dinklokcode.musicapp.Model.BaiHat;
 import com.dinklokcode.musicapp.Model.BaiHatModel;
 import com.dinklokcode.musicapp.R;
+import com.dinklokcode.musicapp.Service.APIService;
+import com.dinklokcode.musicapp.Service.DataService;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BaiHatAdapter extends RecyclerView.Adapter<BaiHatAdapter.ViewHolder>{
     Context context;
-    ArrayList<BaiHatModel> baiHatArraylist;
+    ArrayList<BaiHat> baiHatArraylist;
 
-    public BaiHatAdapter(Context context, ArrayList<BaiHatModel> baiHatArraylist) {
+    public BaiHatAdapter(Context context, ArrayList<BaiHat> baiHatArraylist) {
         this.context = context;
         this.baiHatArraylist = baiHatArraylist;
     }
@@ -35,10 +44,29 @@ public class BaiHatAdapter extends RecyclerView.Adapter<BaiHatAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        BaiHatModel baihat = baiHatArraylist.get(position);
-        holder.txtTenCasi.setText(baihat.getTenCaSi());
+        BaiHat baihat = baiHatArraylist.get(position);
+        holder.txtTenCasi.setText(baihat.getCaSi());
         holder.txtTenBaihat.setText(baihat.getTenBaiHat());
         Picasso.with(context).load(baihat.getHinhBaiHat()).into(holder.imgBaihat);
+        holder.imgThich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.imgThich.setImageResource(R.drawable.love);
+                DataService db = APIService.getService();
+                Call<List<BaiHat>> callback = db.GetDSBaiHatYTCaNhan("username123");
+                callback.enqueue(new Callback<List<BaiHat>>() {
+                    @Override
+                    public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<BaiHat>> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
     }
 
     @Override

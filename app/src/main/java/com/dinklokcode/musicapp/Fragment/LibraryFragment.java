@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dinklokcode.musicapp.Adapter.BaiHatAdapter;
 import com.dinklokcode.musicapp.Adapter.PlaylistAdapter;
+import com.dinklokcode.musicapp.Model.BaiHat;
 import com.dinklokcode.musicapp.Model.BaiHatModel;
 import com.dinklokcode.musicapp.Model.ChuDeModel;
 import com.dinklokcode.musicapp.Model.NgheSiModel;
@@ -57,11 +58,11 @@ public class LibraryFragment extends Fragment {
 
     private void GetDataDSBaihat() {
         DataService db = APIService.getService();
-        Call<List<BaiHatModel>> callback = db.GetAllBaihat();
-        callback.enqueue(new Callback<List<BaiHatModel>>() {
+        Call<List<BaiHat>> callback = db.GetDSBaiHatYTCaNhan("username");
+        callback.enqueue(new Callback<List<BaiHat>>() {
             @Override
-            public void onResponse(Call<List<BaiHatModel>> call, Response<List<BaiHatModel>> response) {
-                ArrayList<BaiHatModel> mangbh = (ArrayList<BaiHatModel>) response.body();
+            public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
+                ArrayList<BaiHat> mangbh = (ArrayList<BaiHat>) response.body();
                 baiHatAdapter = new BaiHatAdapter(getActivity(),mangbh);
                 LinearLayoutManager ln = new LinearLayoutManager(getActivity());
                 ln.setOrientation(LinearLayoutManager.VERTICAL);
@@ -70,7 +71,7 @@ public class LibraryFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<BaiHatModel>> call, Throwable t) {
+            public void onFailure(Call<List<BaiHat>> call, Throwable t) {
 
             }
         });
@@ -78,7 +79,7 @@ public class LibraryFragment extends Fragment {
 
     private void GetDataPlaylist() {
         DataService dataservice = APIService.getService();
-        Call<List<PlaylistModel>> callback = dataservice.GetDSPlayListCaNhan("username123");
+        Call<List<PlaylistModel>> callback = dataservice.GetDSPlayListCaNhan("username");
         callback.enqueue(new Callback<List<PlaylistModel>>() {
             @Override
             public void onResponse(Call<List<PlaylistModel>> call, Response<List<PlaylistModel>> response) {
