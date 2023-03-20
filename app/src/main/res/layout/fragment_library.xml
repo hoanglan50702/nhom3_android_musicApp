@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@drawable/custom_background_library"
     android:orientation="vertical"
     tools:context=".Fragment.HomeFragment">
 
@@ -54,10 +54,10 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_add"
+            android:src="@drawable/create"
             android:id="@+id/imgadd"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"></ImageView>
+            android:layout_marginTop="7dp"></ImageView>
         <TextView
             android:layout_toRightOf="@+id/imgadd"
             android:layout_width="match_parent"
@@ -65,7 +65,8 @@
             android:text="Tạo playlist"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"></TextView>
+            android:textColor="#fff"
+            android:layout_marginTop="7dp"></TextView>
     </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"

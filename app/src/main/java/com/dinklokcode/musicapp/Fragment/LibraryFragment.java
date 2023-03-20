@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.ArrayRes;
 import androidx.annotation.NonNull;
@@ -49,11 +50,33 @@ public class LibraryFragment extends Fragment {
         txtCanhan = view.findViewById(R.id.txtcanhan);
         PlaylistCaNhan = view.findViewById(R.id.playlistcanhan);
         DsNhacYeuThich = view.findViewById(R.id.dsbaihatdathich);
-        GetData();
+        GetDataDSBaihat();
+        GetDataPlaylist();
         return view;
     }
 
-    private void GetData() {
+    private void GetDataDSBaihat() {
+        DataService db = APIService.getService();
+        Call<List<BaiHatModel>> callback = db.GetAllBaihat();
+        callback.enqueue(new Callback<List<BaiHatModel>>() {
+            @Override
+            public void onResponse(Call<List<BaiHatModel>> call, Response<List<BaiHatModel>> response) {
+                ArrayList<BaiHatModel> mangbh = (ArrayList<BaiHatModel>) response.body();
+                baiHatAdapter = new BaiHatAdapter(getActivity(),mangbh);
+                LinearLayoutManager ln = new LinearLayoutManager(getActivity());
+                ln.setOrientation(LinearLayoutManager.VERTICAL);
+                DsNhacYeuThich.setLayoutManager(ln);
+                DsNhacYeuThich.setAdapter(baiHatAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<BaiHatModel>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void GetDataPlaylist() {
         DataService dataservice = APIService.getService();
         Call<List<PlaylistModel>> callback = dataservice.GetDSPlayListCaNhan("username123");
         callback.enqueue(new Callback<List<PlaylistModel>>() {
@@ -61,7 +84,6 @@ public class LibraryFragment extends Fragment {
             public void onResponse(Call<List<PlaylistModel>> call, Response<List<PlaylistModel>> response) {
                 ArrayList<PlaylistModel> mangplaylist = (ArrayList<PlaylistModel>) response.body();
                 PlaylistAdapter = new PlaylistAdapter(getActivity(), mangplaylist);
-
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                 PlaylistCaNhan.setLayoutManager(linearLayoutManager);
@@ -70,23 +92,6 @@ public class LibraryFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<PlaylistModel>> call, Throwable t) {
-
-            }
-        });
-        Call<List<BaiHatModel>> callback2 = dataservice.GetDSBaiHatYTCaNhan("username");
-        callback2.enqueue(new Callback<List<BaiHatModel>>() {
-            @Override
-            public void onResponse(Call<List<BaiHatModel>> call, Response<List<BaiHatModel>> response) {
-                ArrayList<BaiHatModel> mangBaihat = (ArrayList<BaiHatModel>) response.body();
-                baiHatAdapter = new BaiHatAdapter(getActivity(),mangBaihat);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                DsNhacYeuThich.setLayoutManager(linearLayoutManager);
-                DsNhacYeuThich.setAdapter(baiHatAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<List<BaiHatModel>> call, Throwable t) {
 
             }
         });

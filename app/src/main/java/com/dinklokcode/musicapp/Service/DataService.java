@@ -35,6 +35,9 @@ public interface DataService {
     @GET("radiocurrent.php")
     Call<List<RadioModel>> GetRadioCurrent();
 
+    @GET("test.php")
+    Call<List<BaiHatModel>> GetAllBaihat();
+
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<BaiHatModel>> GetDanhSachBaiHatTheoQuangCao(@Field("idQuangCao") String idquangcao);
