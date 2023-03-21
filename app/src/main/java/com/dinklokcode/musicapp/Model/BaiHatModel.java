@@ -23,12 +23,12 @@ public class BaiHatModel implements Parcelable {
     @Expose
     private String LinkBaiHat;
 
-    public BaiHatModel(int idBaiHat, String tenBaiHat, String hinhBaiHat, String tenCaSi, String linkBaiHat) {
+    public BaiHatModel(int idBaiHat, String TenBaiHat, String HinhBaiHat, String CaSi, String LinkBaiHat) {
         this.idBaiHat = idBaiHat;
-        this.TenBaiHat = tenBaiHat;
-        this.HinhBaiHat = hinhBaiHat;
-        this.CaSi = tenCaSi;
-        this.LinkBaiHat = linkBaiHat;
+        this.TenBaiHat = TenBaiHat;
+        this.HinhBaiHat = HinhBaiHat;
+        this.CaSi = CaSi;
+        this.LinkBaiHat = LinkBaiHat;
     }
 
 
@@ -64,8 +64,8 @@ public class BaiHatModel implements Parcelable {
         return TenBaiHat;
     }
 
-    public void setTenBaiHat(String tenBaiHat) {
-        this.TenBaiHat = tenBaiHat;
+    public void setTenBaiHat(String TenBaiHat) {
+        this.TenBaiHat = TenBaiHat;
     }
 
     public String getHinhBaiHat() {
